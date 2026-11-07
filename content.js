@@ -21,9 +21,9 @@ window.KALENDER = {
 
   tage: {
     1: {
-      titel: "Los geht's",
-      tuete: "In der Tüte: ein kleiner Start in den Advent",
-      text: "Schön, dass ihr dabei seid!\nJeden Tag öffnet sich hier genau ein Türchen, passend zur Tüte des Tages."
+      titel: "Willkommen",
+      text: "Liebe Antonia, lieber Stef,\n\nWillkommen bei eurem Adventskalender. Wir hoffen, dass wir euch den Dezember und die Weihnachtszeit mit jedem Türchen ein Stück versüßen können und dass ihr Freude an dem Kalender habt.",
+      bild: "assets/willkommen.svg"
     },
 
     2: {
