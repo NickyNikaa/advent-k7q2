@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Adventskalender</title>
+<style>
+  :root {
+    --bg: #faf7f2; --card: #ffffff; --ink: #1f2a24; --muted: #6b766f;
+    --line: #e6dfd3; --green: #1f4d3a; --red: #b3392f; --gold: #b8934a;
+    --tint: #f6e9e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #131c17; --card: #1b2721; --ink: #f1ece3; --muted: #9aa69f;
+            --line: #2c3a33; --green: #3f8a68; --red: #d9564b; --gold: #d2ac5f; --tint: #2a2523; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+  .garland { height: 22px; background:
+      radial-gradient(circle at 10px 12px, var(--red) 4px, transparent 5px) 0 0 / 60px 22px,
+      radial-gradient(circle at 30px 12px, var(--gold) 4px, transparent 5px) 0 0 / 60px 22px,
+      radial-gradient(circle at 50px 12px, var(--green) 4px, transparent 5px) 0 0 / 60px 22px;
+      border-bottom: 1px solid var(--line); opacity: .9; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 56px; }
+  header { text-align: center; margin-bottom: 28px; }
+  .star { color: var(--gold); font-size: 22px; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400;
+       font-size: clamp(32px, 7vw, 44px); margin: 4px 0 4px; letter-spacing: .01em; }
+  .sub { color: var(--muted); margin: 0; }
+  .status { display: inline-block; margin-top: 14px; padding: 6px 14px; border-radius: 999px;
+            background: var(--card); border: 1px solid var(--line); font-size: 14px; }
+  .preview { background: var(--gold); color: #fff; text-align: center; font-size: 13px; padding: 4px; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (min-width: 520px) { .grid { grid-template-columns: repeat(6, 1fr); gap: 12px; } }
+  .door { position: relative; aspect-ratio: 1; border-radius: 14px; border: 1px solid var(--line);
+          background: var(--card); color: var(--ink); cursor: pointer; padding: 0;
+          font-family: Georgia, serif; font-size: clamp(20px, 5vw, 26px);
+          transition: transform .15s, box-shadow .15s; }
+  .door:hover:not(.locked) { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+  .door:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .door.today { background: var(--green); color: #fff; border-color: var(--green);
+                animation: glow 2.4s ease-in-out infinite; }
+  .door.seen { background: var(--tint); border-color: transparent; color: var(--red); }
+  .door.locked { opacity: .5; cursor: not-allowed; }
+  .door.locked::after { content: ""; position: absolute; right: 7px; bottom: 7px; width: 11px; height: 11px;
+      background: currentColor; opacity: .5;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9zm-8-2a3 3 0 0 1 6 0v2H9z'/%3E%3C/svg%3E") center/contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9zm-8-2a3 3 0 0 1 6 0v2H9z'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .door.shake { animation: shake .35s; }
+  @keyframes glow { 0%,100% { box-shadow: 0 0 0 0 rgba(184,147,74,.5); } 50% { box-shadow: 0 0 0 7px rgba(184,147,74,0); } }
+  @keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+  dialog { border: none; border-radius: 20px; padding: 0; width: min(92vw, 440px); max-height: 90vh;
+           background: var(--card); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+  dialog::backdrop { background: rgba(10,20,15,.55); }
+  dialog[open] { animation: pop .25s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: scale(.94) translateY(8px); } }
+  .d-head { background: var(--green); color: #fff; padding: 22px 24px 18px; text-align: center; position: relative; }
+  .d-num { font-family: Georgia, serif; font-size: 44px; line-height: 1; }
+  .d-title { margin: 6px 0 0; font-size: 17px; opacity: .95; }
+  .close { position: absolute; top: 8px; right: 10px; background: none; border: 0; color: #fff;
+           font-size: 26px; cursor: pointer; padding: 6px 10px; }
+  .d-body { padding: 22px 24px 26px; overflow-y: auto; max-height: calc(90vh - 130px); }
+  .tuete { font-size: 14px; color: var(--gold); margin: 0 0 12px; font-weight: 600; }
+  .text { white-space: pre-line; margin: 0 0 14px; }
+  .d-body img.foto { display: block; max-width: 100%; border-radius: 12px; margin: 0 auto 14px; }
+  .ticket { border: 2px dashed var(--gold); border-radius: 14px; padding: 16px; text-align: center; margin-top: 6px; }
+  .ticket h3 { margin: 0 0 10px; font-family: Georgia, serif; font-weight: 400; font-size: 20px; }
+  .ticket .qr { background: #fff; padding: 12px; border-radius: 10px; display: inline-block; }
+  .ticket .qr img { display: block; width: min(60vw, 220px); height: auto; }
+  .hint { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .quiz label { display: block; font-weight: 600; margin-bottom: 10px; }
+  .quiz .row { display: flex; gap: 8px; }
+  .quiz input { flex: 1; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+                background: var(--bg); color: var(--ink); min-width: 0; }
+  .quiz button { font: inherit; padding: 10px 16px; border-radius: 10px; border: 0; background: var(--red);
+                 color: #fff; cursor: pointer; }
+  .err { color: var(--red); font-size: 14px; min-height: 20px; margin: 8px 0 0; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 32px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink);
+           color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 14px; opacity: 0;
+           pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
+  .toast.show { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div id="previewbar"></div>
+<div class="garland" aria-hidden="true"></div>
+<main>
+  <header>
+    <div class="star" aria-hidden="true">✦</div>
+    <h1 id="titel"></h1>
+    <p class="sub" id="untertitel"></p>
+    <span class="status" id="status"></span>
+  </header>
+  <div class="grid" id="grid"></div>
+  <footer>Jeden Tag öffnet sich ein neues Türchen</footer>
+</main>
+
+<dialog id="dlg" aria-labelledby="d-title">
+  <div class="d-head">
+    <button class="close" id="close" aria-label="Schließen">×</button>
+    <div class="d-num" id="d-num"></div>
+    <p class="d-title" id="d-title"></p>
+  </div>
+  <div class="d-body" id="d-body"></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="content.js"></script>
+<script>
+(function () {
+  var K = window.KALENDER;
+  var MONATE = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+
+  // Datum in Berliner Zeit bestimmen
+  function berlin() {
+    var s = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+    var p = s.split("-").map(Number);
+    return { y: p[0], m: p[1], d: p[2] };
+  }
+  // Wie viele Türchen sind freigeschaltet? (0 bis 24)
+  function offen() {
+    var q = new URLSearchParams(location.search).get("vorschau");
+    if (q !== null && q !== "") { return { n: Math.max(0, Math.min(24, parseInt(q, 10) || 0)), vorschau: true }; }
+    var t = berlin();
+    if (t.y < K.jahr || (t.y === K.jahr && t.m < 12)) return { n: 0 };
+    if (t.y > K.jahr) return { n: 24 };
+    return { n: Math.min(24, t.d) };
+  }
+
+  var store = {
+    get: function (k) { try { return localStorage.getItem("advent" + K.jahr + k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem("advent" + K.jahr + k, v); } catch (e) {} }
+  };
+
+  var state = offen();
+  var heute = state.n;
+  var $ = function (id) { return document.getElementById(id); };
+  $("titel").textContent = K.titel + " " + K.jahr;
+  $("untertitel").textContent = K.untertitel;
+
+  if (state.vorschau) {
+    var bar = $("previewbar");
+    bar.className = "preview";
+    bar.textContent = "Vorschau-Modus: Tag " + heute;
+  }
+
+  var st = $("status");
+  var t = berlin();
+  if (heute === 0) {
+    var tage = Math.round((Date.UTC(K.jahr, 11, 1) - Date.UTC(t.y, t.m - 1, t.d)) / 864e5);
+    st.textContent = tage > 0 ? "Noch " + tage + (tage === 1 ? " Tag" : " Tage") + " bis zum 1. Dezember" : "Bald geht's los";
+  } else if (heute < 24 || state.vorschau || (t.m === 12 && t.d === 24)) {
+    st.textContent = "Heute: Türchen " + heute;
+  } else {
+    st.textContent = "Alle Türchen sind offen";
+  }
+
+  function seen(n) { return store.get("seen" + n) === "1"; }
+  function toast(msg) {
+    var el = $("toast"); el.textContent = msg; el.classList.add("show");
+    clearTimeout(toast.t); toast.t = setTimeout(function () { el.classList.remove("show"); }, 2600);
+  }
+
+  var grid = $("grid");
+  function draw() {
+    grid.innerHTML = "";
+    for (var n = 1; n <= 24; n++) {
+      (function (n) {
+        var b = document.createElement("button");
+        b.className = "door";
+        b.textContent = n;
+        var locked = n > heute;
+        if (locked) b.classList.add("locked");
+        else if (n === heute && heute <= 24 && !seen(n)) b.classList.add("today");
+        else if (seen(n)) b.classList.add("seen");
+        b.setAttribute("aria-label", "Türchen " + n + (locked ? ", noch gesperrt" : ""));
+        b.addEventListener("click", function () {
+          if (locked) {
+            b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
+            toast("Türchen " + n + " öffnet sich am " + n + ". Dezember.");
+            return;
+          }
+          show(n);
+        });
+        grid.appendChild(b);
+      })(n);
+    }
+  }
+
+  function norm(s) { return String(s).toLowerCase().trim().replace(/[.,!?;:"'\u0060´]/g, "").replace(/\s+/g, " "); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+
+  function inhalt(n, d, body) {
+    if (d.tuete) body.appendChild(el("p", "tuete", d.tuete));
+    if (d.text) body.appendChild(el("p", "text", d.text));
+    if (d.bild) { var i = el("img", "foto"); i.src = d.bild; i.alt = ""; body.appendChild(i); }
+    if (d.gutschein) {
+      var g = d.gutschein, tk = el("div", "ticket");
+      tk.appendChild(el("h3", "", g.titel || "Gutschein"));
+      if (g.bild) { var w = el("div", "qr"), im = el("img"); im.src = g.bild; im.alt = "QR-Code für " + (g.titel || "Gutschein"); w.appendChild(im); tk.appendChild(w); }
+      if (g.hinweis) tk.appendChild(el("p", "hint", g.hinweis));
+      body.appendChild(tk);
+    }
+  }
+
+  function show(n) {
+    var d = K.tage[n] || {};
+    var titel = d.titel || K.standard.titel.replace("{n}", n);
+    if (!K.tage[n]) d = { text: K.standard.text };
+    $("d-num").textContent = n;
+    $("d-title").textContent = titel;
+    var body = $("d-body"); body.innerHTML = "";
+
+    var r = d.raetsel;
+    if (r && store.get("solved" + n) !== "1") {
+      var q = el("form", "quiz");
+      var lab = el("label", "", r.frage); lab.setAttribute("for", "ans");
+      var row = el("div", "row");
+      var inp = el("input"); inp.id = "ans"; inp.autocomplete = "off"; inp.placeholder = "Deine Antwort";
+      var go = el("button", "", "Prüfen"); go.type = "submit";
+      row.appendChild(inp); row.appendChild(go);
+      var err = el("p", "err");
+      q.appendChild(lab); q.appendChild(row); q.appendChild(err);
+      if (r.hinweis) q.appendChild(el("p", "hint", r.hinweis));
+      q.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var ok = r.antworten.some(function (a) { return norm(a) === norm(inp.value); });
+        if (ok) { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; inhalt(n, d, body); draw(); }
+        else { err.textContent = "Leider nicht ganz. Versuch es nochmal!"; }
+      });
+      body.appendChild(q);
+    } else {
+      inhalt(n, d, body);
+      store.set("seen" + n, "1");
+      draw();
+    }
+    var dlg = $("dlg");
+    if (!dlg.open) dlg.showModal();
+  }
+
+  $("close").addEventListener("click", function () { $("dlg").close(); });
+  $("dlg").addEventListener("click", function (e) { if (e.target === this) this.close(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>
