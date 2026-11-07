@@ -72,6 +72,12 @@
   .ticket .qr { background: #fff; padding: 12px; border-radius: 10px; display: inline-block; }
   .ticket .qr img { display: block; width: min(60vw, 220px); height: auto; }
   .hint { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .links { list-style: none; margin: 0 0 14px; padding: 0; }
+  .links li { margin-bottom: 6px; }
+  .links a { color: var(--green); font-weight: 600; }
+  .abschnitt h4 { margin: 14px 0 8px; font-family: Georgia, serif; font-weight: 400; font-size: 18px; color: var(--green); }
+  .abschnitt ul { margin: 0 0 8px; padding-left: 20px; }
+  .abschnitt li { margin-bottom: 8px; }
   .quiz label { display: block; font-weight: 600; margin-bottom: 10px; }
   .quiz .row { display: flex; gap: 8px; }
   .quiz input { flex: 1; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
@@ -199,6 +205,23 @@
   function inhalt(n, d, body) {
     if (d.tuete) body.appendChild(el("p", "tuete", d.tuete));
     if (d.text) body.appendChild(el("p", "text", d.text));
+    if (d.links) {
+      var ul = el("ul", "links");
+      d.links.forEach(function (l) {
+        var li = el("li"), a = el("a", "", l.text);
+        a.href = l.url; a.target = "_blank"; a.rel = "noopener";
+        li.appendChild(a); ul.appendChild(li);
+      });
+      body.appendChild(ul);
+    }
+    if (d.abschnitte) {
+      d.abschnitte.forEach(function (s) {
+        var w = el("div", "abschnitt"), l = el("ul");
+        w.appendChild(el("h4", "", s.titel));
+        s.punkte.forEach(function (p) { l.appendChild(el("li", "", p)); });
+        w.appendChild(l); body.appendChild(w);
+      });
+    }
     if (d.bild) { var i = el("img", "foto"); i.src = d.bild; i.alt = ""; body.appendChild(i); }
     if (d.gutschein) {
       var g = d.gutschein, tk = el("div", "ticket");
