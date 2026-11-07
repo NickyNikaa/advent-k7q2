@@ -56,11 +56,11 @@ window.KALENDER = {
     24: {
       titel: "Frohe Weihnachten",
       tuete: "In der Tüte: das große Finale",
-      text: "Euer Geschenk zum Schluss: ein Essen auf mich. Sucht euch ein Restaurant aus!",
+      text: "Frohe Weihnachten, Antonia und Stef!\nFür ein paar Glücksgefühle umhüllt von Bao Buns oder Noooooodlessss.",
       gutschein: {
-        titel: "Gutschein zum Essengehen",
-        bild: "assets/beispiel-qr.png",
-        hinweis: "Platzhalter. Ersetze assets/beispiel-qr.png durch deinen echten QR-Code."
+        titel: "Gutschein für Mamma Bao",
+        bild: "assets/qr-24.png",
+        hinweis: "Wert: 30,00 €. Zum Einlösen den Code scannen. Geschenkkartencode: 12795791"
       }
     }
   },
