@@ -85,6 +85,8 @@
   .text { white-space: pre-line; margin: 0 0 14px; font-size: 25px; line-height: 31px; }
   .spruch { margin: 18px 4px 16px; padding: 0; text-align: center; font-size: 30px; line-height: 1.12; color: var(--red); }
   .spruch::before { content: "\201E"; } .spruch::after { content: "\201C"; }
+  .quelle { margin: 4px 0 8px; font-size: 19px; line-height: 1.2; }
+  .quelle a { color: var(--muted); text-underline-offset: 3px; }
   .schluss { text-align: center; font-size: 27px; color: var(--green); margin: 14px 0 6px; }
   .d-body img.foto { display: block; max-width: 100%; border-radius: 12px; margin: 0 auto 14px; }
   .ticket { border: 2px dashed var(--gold); border-radius: 14px; padding: 16px; text-align: center; margin-top: 10px; background: var(--card); }
@@ -256,6 +258,11 @@
         s.punkte.forEach(function (p) { l.appendChild(el("li", "", p)); });
         w.appendChild(l); body.appendChild(w);
       });
+    }
+    if (d.quelle) {
+      var qp = el("p", "quelle"), qa = el("a", "", "Quelle: " + d.quelle.text);
+      qa.href = d.quelle.url; qa.target = "_blank"; qa.rel = "noopener";
+      qp.appendChild(qa); body.appendChild(qp);
     }
     if (d.schluss) body.appendChild(el("p", "schluss", d.schluss));
     if (d.bild) { var i = el("img", "foto"); i.src = d.bild; i.alt = ""; body.appendChild(i); }
