@@ -43,9 +43,9 @@ window.KALENDER = {
     },
 
     4: {
-      titel: "Wusstet ihr schon? 🧱",
-      text: "Lego stellt jedes Jahr rund 306 Millionen kleine Gummireifen her. Den Guinness-Rekord für die größte jährliche Stückzahl an Spielzeugreifen hält Lego, 2010 waren es sogar 381 Millionen.",
-      quelle: { text: "Guinness World Records", url: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" }
+      titel: "Wusstet ihr schon? 🐄",
+      text: "Kühe sind für Menschen gefährlicher als Haie. In den USA sind laut CDC zwischen 2003 und 2007 im Schnitt etwa 22 Menschen pro Jahr durch Kühe gestorben. Haie haben 2022 weltweit 5 Menschen getötet.",
+      quelle: { text: "Snopes", url: "https://www.snopes.com/fact-check/cows-kill-more-people-than-sharks/" }
     },
 
     5: {
@@ -55,10 +55,10 @@ window.KALENDER = {
     },
 
     6: {
-      titel: "Wusstet ihr schon? 🦌",
+      titel: "Wusstet ihr schon? 🚗",
       tuete: "Viel Glück heute! 🍀",
-      text: "Rudolph wurde 1939 als Werbefigur für ein Kaufhaus erfunden. Der Texter Robert L. May schrieb die Geschichte für Montgomery Ward, und schon im ersten Jahr wurden 2,4 Millionen Exemplare verschenkt.",
-      quelle: { text: "Smithsonian Institution", url: "https://newsdesk.si.edu/snapshot/rudolph-red-nosed-reindeer" }
+      text: "Der gefährlichste Song am Steuer ist angeblich „American Idiot“ von Green Day. Forschende der South China University of Technology ließen Leute in einem Fahrsimulator fahren: Mit Rockmusik wechselten sie etwa doppelt so oft die Spur und fuhren im Schnitt 5 mph zu schnell. Schuld soll das schnelle Tempo ab etwa 120 BPM sein. Auf Platz zwei folgt „Party in the USA“ von Miley Cyrus, auf Platz drei „Mr. Brightside“ von The Killers. Gemessen wurde allerdings das Fahrverhalten im Simulator, keine echten Unfälle.",
+      quelle: { text: "NME", url: "https://www.nme.com/news/music/most-dangerous-songs-drive-green-day-led-zeppelin-2549342" }
     },
 
     7: {
@@ -69,18 +69,18 @@ window.KALENDER = {
 
     8: {
       titel: "Nitschis Konstanz-Empfehlung für euch",
-      text: "Wenn ihr mal in Konstanz seid und Lust auf ein richtig gutes Eggdrop Sandwich habt, schaut unbedingt bei den beiden vorbei:",
+      text: "Zwei Tipps für euch, wenn ihr mal in Konstanz seid. Und wenn ihr Lust auf ein richtig gutes Eggdrop Sandwich habt, ist bloggers_kn genau die richtige Adresse:",
       links: [
         { text: "khibar_konstanz auf Instagram", url: "https://www.instagram.com/khibar_konstanz/" },
-        { text: "bloggers_kn auf Instagram", url: "https://www.instagram.com/bloggers_kn/" }
+        { text: "bloggers_kn auf Instagram (Eggdrop Sandwich)", url: "https://www.instagram.com/bloggers_kn/" }
       ],
       schluss: "Lasst es euch schmecken 😋"},
 
     9: {
-      titel: "Wusstet ihr schon? 🐾",
+      titel: "Wusstet ihr schon? 🦐",
       tuete: "Viel Glück heute! 🍀",
-      text: "Wombats machen würfelförmige Köttel, bis zu 100 Würfel pro Tag. Forschende der Georgia Tech haben herausgefunden, warum: Ihr Darm ist an manchen Stellen steifer und an anderen elastischer, und dadurch entstehen beim Zusammenziehen Ecken.",
-      quelle: { text: "Smithsonian Magazine", url: "https://www.smithsonianmag.com/smart-news/scientists-have-solved-mystery-how-wombats-poop-cubes-180976898/" }
+      text: "Der Fangschreckenkrebs schlägt mit rund 80 km/h zu, und der Schlag dauert weniger als 3 Millisekunden. Dabei bilden sich im Wasser kleine Bläschen, die beim Zerplatzen sogar einen Lichtblitz erzeugen.",
+      quelle: { text: "National Geographic", url: "https://www.nationalgeographic.com/science/article/the-mantis-shrimp-has-the-worlds-fastest-punch" }
     },
 
     10: {
@@ -90,22 +90,22 @@ window.KALENDER = {
     },
 
     11: {
-      titel: "Wusstet ihr schon? 🎄",
-      text: "Der älteste Beleg für einen geschmückten Tannenbaum in einem Haus stammt aus Bremen, aus dem Jahr 1570. In der Zunftstube stand eine kleine Tanne mit Datteln, Äpfeln, Nüssen, Brezeln und Papierblumen.",
-      quelle: { text: "waldwissen.net", url: "https://www.waldwissen.net/de/wald-und-mensch/forstgeschichte/geschichte-des-weihnachtsbaumes" }
+      titel: "Wusstet ihr schon? 🪐",
+      text: "Auf der Venus dauert ein Tag länger als ein Jahr. Sie braucht etwa 243 Erdtage für eine Drehung um sich selbst, aber nur etwa 225 Erdtage für eine Runde um die Sonne. Und weil sie sich andersherum dreht als die Erde, geht die Sonne dort im Westen auf.",
+      quelle: { text: "NASA Space Place", url: "https://spaceplace.nasa.gov/all-about-venus/" }
     },
 
     12: {
-      titel: "Wusstet ihr schon? 🎶",
+      titel: "Wusstet ihr schon? 🐱",
       tuete: "Viel Glück heute! 🍀",
-      text: "Wenn Menschen im Chor zusammen singen, gleichen sich ihr Atem und ihr Herzschlag an. Das haben Forschende aus Berlin schon 2011 gemessen: Die Herzen der Sängerinnen und Sänger schlagen dann im selben Rhythmus.",
-      quelle: { text: "Universität Potsdam", url: "https://uni-potsdam.de/de/soundscapelab/computational-ethnomusicology/synchronisation-of-heartbeat-rates-during-singing" }
+      text: "Katzen können Süßes nicht schmecken. Bei ihnen fehlt ein Stück eines Gens (Tas1r2), das für den Süßgeschmack gebraucht wird. Entdeckt haben das Forschende am Monell Chemical Senses Center in Philadelphia.",
+      quelle: { text: "Scientific American", url: "https://www.scientificamerican.com/article/strange-but-true-cats-cannot-taste-sweets/" }
     },
 
     13: {
-      titel: "Wusstet ihr schon? 🎓",
-      text: "Die Universität Oxford ist älter als das Aztekenreich. In Oxford wird seit spätestens 1096 gelehrt, die Aztekenstadt Tenochtitlán wurde erst 1325 gegründet.",
-      quelle: { text: "Smithsonian Magazine", url: "https://www.smithsonianmag.com/smart-news/oxford-university-is-older-than-the-aztecs-1529607/" }
+      titel: "Wusstet ihr schon? 🍅",
+      text: "Ketchup wurde in den 1830er Jahren als Medizin verkauft. Der amerikanische Arzt John Cook Bennett bewarb Tomatenpillen gegen Durchfall, Verdauungsprobleme und Leberschäden, und ab 1837 gab es „Dr. Miles' Compound Extract of Tomato“. Um 1850 war die Idee wieder vom Tisch.",
+      quelle: { text: "Chowhound", url: "https://www.chowhound.com/1779752/history-medicinal-ketchup/" }
     },
 
     14: {
@@ -150,15 +150,15 @@ window.KALENDER = {
       schluss: "Danke, dass es euch gibt 🫶"},
 
     18: {
-      titel: "Wusstet ihr schon? 🦌",
-      text: "Rentierböcke werfen ihr Geweih schon zwischen Ende November und Januar ab, die Weibchen behalten es bis zum Frühjahr. Wenn Santas Rentiere an Weihnachten ein Geweih tragen, sind sie also wahrscheinlich Damen.",
-      quelle: { text: "Snopes", url: "https://www.snopes.com/fact-check/reindeer-games" }
+      titel: "Wusstet ihr schon? 🐔",
+      text: "Auf der Erde leben deutlich mehr Hühner als Menschen. Die FAO zählte 2020 über 33 Milliarden Hühner bei etwa 7,8 Milliarden Menschen, das sind rund vier Hühner pro Person.",
+      quelle: { text: "The Humane League (nach FAO)", url: "https://thehumaneleague.org/article/how-many-chickens-are-in-the-world" }
     },
 
     19: {
-      titel: "Wusstet ihr schon? 🐶",
-      text: "Wenn sich Hund und Mensch lange in die Augen schauen, steigt bei beiden das Bindungshormon Oxytocin. Bei Wölfen und Menschen passiert das nicht, denn für Wölfe ist direkter Blickkontakt eher eine Drohung.",
-      quelle: { text: "TIME (Studie in Science, 2015)", url: "https://time.com/3824952/dog-gaze-eyes/" }
+      titel: "Wusstet ihr schon? 🦌",
+      text: "Die Augen von Rentieren sind im Sommer golden und im Winter blau. Im Winter ist ihre Netzhaut mindestens 1000-mal lichtempfindlicher, was ihnen in der Dunkelheit der Polarnacht hilft.",
+      quelle: { text: "National Geographic", url: "https://www.nationalgeographic.com/science/phenomena/2013/10/29/why-are-reindeer-eyes-golden-in-summer-but-blue-in-winter/" }
     },
 
     20: {
@@ -182,9 +182,9 @@ window.KALENDER = {
     },
 
     23: {
-      titel: "Wusstet ihr schon? 🎅",
-      text: "Seit 1955 verfolgt das US-Militär jedes Jahr den Weg des Weihnachtsmanns. Angefangen hat es mit einer falsch gedruckten Telefonnummer in einer Werbeanzeige, die Kinder beim Militär anrufen ließ. Oberst Harry Shoup nahm die Anrufe einfach an.",
-      quelle: { text: "Fortune", url: "https://fortune.com/2024/12/24/norad-santa-tracker-history-cold-war/" }
+      titel: "Wusstet ihr schon? 🗼",
+      text: "Der Eiffelturm bewegt sich. Wenn die Sonne nur eine Seite aufheizt, neigt sich die Spitze leicht von ihr weg und zeichnet an klaren Tagen einen Kreis von etwa 15 Zentimetern.",
+      quelle: { text: "Tour Eiffel", url: "https://www.toureiffel.paris/en/news/history-and-culture/why-does-eiffel-tower-change-size" }
     },
 
     24: {
