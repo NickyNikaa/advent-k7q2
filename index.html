@@ -6,88 +6,108 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Adventskalender</title>
 <style>
+  @font-face { font-family: "Caveat"; src: url("caveat.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
   :root {
-    --bg: #faf7f2; --card: #ffffff; --ink: #1f2a24; --muted: #6b766f;
-    --line: #e6dfd3; --green: #1f4d3a; --red: #b3392f; --gold: #b8934a;
-    --tint: #f6e9e6;
+    --bg: #fbf2e4; --bg2: #f6e4cf; --card: #fffaf1; --ink: #4a3126; --muted: #8a6f5e;
+    --line: #e7d3b8; --green: #3a6b52; --red: #b8433a; --gold: #c8964a;
+    --tint: #f8dcd2; --paper-line: rgba(200,150,74,.22);
+    --hand: "Caveat", "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #131c17; --card: #1b2721; --ink: #f1ece3; --muted: #9aa69f;
-            --line: #2c3a33; --green: #3f8a68; --red: #d9564b; --gold: #d2ac5f; --tint: #2a2523; }
+    :root { --bg: #20160f; --bg2: #2a1d14; --card: #33241a; --ink: #f6e9d8; --muted: #c3a68c;
+            --line: #4a3626; --green: #6fae8c; --red: #e0685c; --gold: #e0b265;
+            --tint: #4a2c27; --paper-line: rgba(224,178,101,.16); }
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
-  .garland { height: 22px; background:
-      radial-gradient(circle at 10px 12px, var(--red) 4px, transparent 5px) 0 0 / 60px 22px,
-      radial-gradient(circle at 30px 12px, var(--gold) 4px, transparent 5px) 0 0 / 60px 22px,
-      radial-gradient(circle at 50px 12px, var(--green) 4px, transparent 5px) 0 0 / 60px 22px;
-      border-bottom: 1px solid var(--line); opacity: .9; }
-  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 56px; }
-  header { text-align: center; margin-bottom: 28px; }
+  body { margin: 0; color: var(--ink); font-family: var(--hand); font-size: 22px; line-height: 1.4;
+         background: radial-gradient(1200px 600px at 50% -10%, var(--bg2), transparent 70%), var(--bg);
+         min-height: 100vh; }
+  .garland { height: 30px; position: relative; overflow: hidden; }
+  .garland::before { content: ""; position: absolute; left: -10px; right: -10px; top: 2px; height: 14px;
+      border-bottom: 2px solid var(--muted); border-radius: 0 0 50% 50% / 0 0 100% 100%; opacity: .55; }
+  .garland i { position: absolute; top: 12px; width: 9px; height: 13px; border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      animation: tw 2.6s ease-in-out infinite; }
+  @keyframes tw { 0%,100% { opacity: .55; } 50% { opacity: 1; box-shadow: 0 0 10px 2px currentColor; } }
+  main { max-width: 660px; margin: 0 auto; padding: 22px 16px 56px; }
+  header { text-align: center; margin-bottom: 26px; }
   .star { color: var(--gold); font-size: 22px; }
-  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400;
-       font-size: clamp(32px, 7vw, 44px); margin: 4px 0 4px; letter-spacing: .01em; }
-  .sub { color: var(--muted); margin: 0; }
-  .status { display: inline-block; margin-top: 14px; padding: 6px 14px; border-radius: 999px;
-            background: var(--card); border: 1px solid var(--line); font-size: 14px; }
-  .preview { background: var(--gold); color: #fff; text-align: center; font-size: 13px; padding: 4px; }
+  h1 { font-family: var(--hand); font-weight: 600; font-size: clamp(46px, 11vw, 68px); line-height: 1;
+       margin: 2px 0 6px; color: var(--red); transform: rotate(-2deg); }
+  .sub { color: var(--muted); margin: 0; font-size: 26px; }
+  .status { display: inline-block; margin-top: 14px; padding: 4px 20px 6px; border-radius: 6px;
+            background: var(--card); border: 2px dashed var(--gold); font-size: 24px; transform: rotate(1deg); }
+  .preview { background: var(--gold); color: #fff; text-align: center; font-family: system-ui, sans-serif; font-size: 13px; padding: 4px; }
 
-  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  @media (min-width: 520px) { .grid { grid-template-columns: repeat(6, 1fr); gap: 12px; } }
-  .door { position: relative; aspect-ratio: 1; border-radius: 14px; border: 1px solid var(--line);
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 12px; padding: 4px; }
+  @media (min-width: 520px) { .grid { grid-template-columns: repeat(6, 1fr); gap: 16px 14px; } }
+  .door { position: relative; aspect-ratio: 1; border-radius: 10px 10px 14px 14px; border: 2px solid var(--line);
           background: var(--card); color: var(--ink); cursor: pointer; padding: 0;
-          font-family: Georgia, serif; font-size: clamp(20px, 5vw, 26px);
+          font-family: var(--hand); font-size: clamp(32px, 8vw, 42px); line-height: 1;
+          box-shadow: 0 3px 0 var(--line), 0 6px 12px rgba(120,70,30,.10);
           transition: transform .15s, box-shadow .15s; }
-  .door:hover:not(.locked) { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
-  .door:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-  .door.today { background: var(--green); color: #fff; border-color: var(--green);
+  .door:nth-child(odd) { transform: rotate(-1.6deg); }
+  .door:nth-child(even) { transform: rotate(1.4deg); }
+  .door::before { content: ""; position: absolute; left: 50%; top: -7px; width: 26px; height: 12px; margin-left: -13px;
+      background: rgba(200,150,74,.35); border-radius: 2px; transform: rotate(-3deg); }
+  .door:hover:not(.locked) { transform: translateY(-3px) rotate(0deg); box-shadow: 0 6px 0 var(--line), 0 12px 18px rgba(120,70,30,.15); }
+  .door:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .door.today { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 3px 0 #8a2f28, 0 6px 14px rgba(184,67,58,.35);
                 animation: glow 2.4s ease-in-out infinite; }
   .door.seen { background: var(--tint); border-color: transparent; color: var(--red); }
-  .door.locked { opacity: .5; cursor: not-allowed; }
-  .door.locked::after { content: ""; position: absolute; right: 7px; bottom: 7px; width: 11px; height: 11px;
-      background: currentColor; opacity: .5;
+  .door.seen::after { content: "\2665"; position: absolute; right: 7px; bottom: 5px; font-size: 14px; font-family: system-ui, sans-serif; opacity: .7; }
+  .door.locked { opacity: .55; cursor: not-allowed; background: transparent; border-style: dashed; box-shadow: none; }
+  .door.locked::after { content: ""; position: absolute; right: 7px; bottom: 7px; width: 12px; height: 12px;
+      background: currentColor; opacity: .45;
       -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9zm-8-2a3 3 0 0 1 6 0v2H9z'/%3E%3C/svg%3E") center/contain no-repeat;
               mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9zm-8-2a3 3 0 0 1 6 0v2H9z'/%3E%3C/svg%3E") center/contain no-repeat; }
   .door.shake { animation: shake .35s; }
-  @keyframes glow { 0%,100% { box-shadow: 0 0 0 0 rgba(184,147,74,.5); } 50% { box-shadow: 0 0 0 7px rgba(184,147,74,0); } }
-  @keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+  @keyframes glow { 0%,100% { box-shadow: 0 3px 0 #8a2f28, 0 0 0 0 rgba(200,150,74,.6); } 50% { box-shadow: 0 3px 0 #8a2f28, 0 0 0 9px rgba(200,150,74,0); } }
+  @keyframes shake { 25% { translate: -4px 0; } 75% { translate: 4px 0; } }
 
-  dialog { border: none; border-radius: 20px; padding: 0; width: min(92vw, 440px); max-height: 90vh;
-           background: var(--card); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
-  dialog::backdrop { background: rgba(10,20,15,.55); }
-  dialog[open] { animation: pop .25s ease-out; }
-  @keyframes pop { from { opacity: 0; transform: scale(.94) translateY(8px); } }
-  .d-head { background: var(--green); color: #fff; padding: 22px 24px 18px; text-align: center; position: relative; }
-  .d-num { font-family: Georgia, serif; font-size: 44px; line-height: 1; }
-  .d-title { margin: 6px 0 0; font-size: 17px; opacity: .95; }
-  .close { position: absolute; top: 8px; right: 10px; background: none; border: 0; color: #fff;
-           font-size: 26px; cursor: pointer; padding: 6px 10px; }
-  .d-body { padding: 22px 24px 26px; overflow-y: auto; max-height: calc(90vh - 130px); }
-  .tuete { font-size: 14px; color: var(--gold); margin: 0 0 12px; font-weight: 600; }
-  .text { white-space: pre-line; margin: 0 0 14px; }
+  dialog { border: none; border-radius: 6px 6px 18px 18px; padding: 0; width: min(92vw, 460px); max-height: 90vh; overflow: visible;
+           background: var(--card); color: var(--ink); box-shadow: 0 24px 60px rgba(60,30,10,.4); }
+  dialog::backdrop { background: rgba(40,20,10,.58); }
+  dialog[open] { animation: pop .28s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: scale(.94) translateY(10px) rotate(-1deg); } }
+  .tape { position: absolute; top: -13px; left: 50%; width: 110px; height: 28px; margin-left: -55px;
+          background: rgba(200,150,74,.55); transform: rotate(-2deg); border-radius: 2px; z-index: 2; }
+  .d-head { padding: 30px 24px 8px; text-align: center; position: relative; }
+  .d-num { width: 64px; height: 64px; margin: 0 auto; border-radius: 50%; background: var(--red); color: #fff;
+           font-size: 42px; line-height: 64px; box-shadow: inset 0 0 0 3px rgba(255,255,255,.25), 0 3px 8px rgba(184,67,58,.4); }
+  .d-title { margin: 10px 0 0; font-size: 34px; line-height: 1.05; color: var(--green); }
+  .close { position: absolute; top: 14px; right: 12px; background: none; border: 0; color: var(--muted);
+           font-family: system-ui, sans-serif; font-size: 28px; cursor: pointer; padding: 6px 10px; }
+  .d-body { padding: 8px 26px 28px; overflow-y: auto; max-height: calc(90vh - 170px);
+            background-image: repeating-linear-gradient(transparent 0, transparent 30px, var(--paper-line) 30px, var(--paper-line) 31px);
+            background-position: 0 8px; }
+  .tuete { display: inline-block; font-size: 21px; color: var(--ink); margin: 6px 0 14px; padding: 2px 14px 4px 18px;
+           background: var(--bg2); border-radius: 4px 14px 14px 4px; border-left: 4px solid var(--gold); }
+  .text { white-space: pre-line; margin: 0 0 14px; font-size: 25px; line-height: 31px; }
+  .spruch { margin: 18px 4px 16px; padding: 0; text-align: center; font-size: 30px; line-height: 1.12; color: var(--red); }
+  .spruch::before { content: "\201E"; } .spruch::after { content: "\201C"; }
+  .schluss { text-align: center; font-size: 27px; color: var(--green); margin: 14px 0 6px; }
   .d-body img.foto { display: block; max-width: 100%; border-radius: 12px; margin: 0 auto 14px; }
-  .ticket { border: 2px dashed var(--gold); border-radius: 14px; padding: 16px; text-align: center; margin-top: 6px; }
-  .ticket h3 { margin: 0 0 10px; font-family: Georgia, serif; font-weight: 400; font-size: 20px; }
+  .ticket { border: 2px dashed var(--gold); border-radius: 14px; padding: 16px; text-align: center; margin-top: 10px; background: var(--card); }
+  .ticket h3 { margin: 0 0 10px; font-weight: 600; font-size: 30px; color: var(--red); }
   .ticket .qr { background: #fff; padding: 12px; border-radius: 10px; display: inline-block; }
   .ticket .qr img { display: block; width: min(60vw, 220px); height: auto; }
-  .hint { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .hint { font-size: 20px; color: var(--muted); margin: 10px 0 0; line-height: 1.2; }
   .links { list-style: none; margin: 0 0 14px; padding: 0; }
-  .links li { margin-bottom: 6px; }
-  .links a { color: var(--green); font-weight: 600; }
-  .abschnitt h4 { margin: 14px 0 8px; font-family: Georgia, serif; font-weight: 400; font-size: 18px; color: var(--green); }
-  .abschnitt ul { margin: 0 0 8px; padding-left: 20px; }
-  .abschnitt li { margin-bottom: 8px; }
-  .quiz label { display: block; font-weight: 600; margin-bottom: 10px; }
+  .links li { margin-bottom: 6px; font-size: 25px; }
+  .links a { color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .abschnitt h4 { margin: 16px 0 6px; font-weight: 600; font-size: 34px; color: var(--green); }
+  .abschnitt ul { margin: 0 0 8px; padding: 0; list-style: none; }
+  .abschnitt li { margin-bottom: 12px; padding-left: 26px; position: relative; font-size: 24px; line-height: 1.2; }
+  .abschnitt li::before { content: "\2665"; position: absolute; left: 2px; top: 1px; color: var(--red); font-family: system-ui, sans-serif; font-size: 15px; }
+  .quiz label { display: block; margin-bottom: 10px; font-size: 26px; }
   .quiz .row { display: flex; gap: 8px; }
-  .quiz input { flex: 1; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+  .quiz input { flex: 1; font: inherit; padding: 6px 12px; border-radius: 10px; border: 2px solid var(--line);
                 background: var(--bg); color: var(--ink); min-width: 0; }
-  .quiz button { font: inherit; padding: 10px 16px; border-radius: 10px; border: 0; background: var(--red);
-                 color: #fff; cursor: pointer; }
-  .err { color: var(--red); font-size: 14px; min-height: 20px; margin: 8px 0 0; }
-  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 32px; }
+  .quiz button { font: inherit; padding: 6px 18px; border-radius: 10px; border: 0; background: var(--red); color: #fff; cursor: pointer; }
+  .err { color: var(--red); font-size: 20px; min-height: 22px; margin: 8px 0 0; }
+  footer { text-align: center; color: var(--muted); font-size: 24px; margin-top: 34px; }
   .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink);
-           color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 14px; opacity: 0;
+           color: var(--bg); padding: 6px 20px 8px; border-radius: 999px; font-size: 22px; opacity: 0;
            pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
   .toast.show { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
@@ -95,7 +115,7 @@
 </head>
 <body>
 <div id="previewbar"></div>
-<div class="garland" aria-hidden="true"></div>
+<div class="garland" aria-hidden="true" id="garland"></div>
 <main>
   <header>
     <div class="star" aria-hidden="true">✦</div>
@@ -104,10 +124,11 @@
     <span class="status" id="status"></span>
   </header>
   <div class="grid" id="grid"></div>
-  <footer>Jeden Tag öffnet sich ein neues Türchen</footer>
+  <footer>Jeden Tag ein neues Türchen, von Herzen für euch gemacht</footer>
 </main>
 
 <dialog id="dlg" aria-labelledby="d-title">
+  <div class="tape" aria-hidden="true"></div>
   <div class="d-head">
     <button class="close" id="close" aria-label="Schließen">×</button>
     <div class="d-num" id="d-num"></div>
@@ -144,6 +165,19 @@
     set: function (k, v) { try { localStorage.setItem("advent" + K.jahr + k, v); } catch (e) {} }
   };
 
+  (function () {
+    var g = document.getElementById("garland"), cols = ["#b8433a", "#c8964a", "#3a6b52", "#d9776b"];
+    var n = Math.ceil(Math.max(window.innerWidth, 400) / 46);
+    for (var i = 0; i < n; i++) {
+      var b = document.createElement("i");
+      var x = (i + .5) / n;
+      b.style.left = (x * 100) + "%"; b.style.marginLeft = "-4px";
+      b.style.top = (8 + 8 * Math.abs(Math.sin(i * 1.3))) + "px";
+      b.style.background = cols[i % cols.length]; b.style.color = cols[i % cols.length];
+      b.style.animationDelay = (-(i * .37) % 2.6) + "s";
+      g.appendChild(b);
+    }
+  })();
   var state = offen();
   var heute = state.n;
   var $ = function (id) { return document.getElementById(id); };
@@ -160,11 +194,11 @@
   var t = berlin();
   if (heute === 0) {
     var tage = Math.round((Date.UTC(K.jahr, 11, 1) - Date.UTC(t.y, t.m - 1, t.d)) / 864e5);
-    st.textContent = tage > 0 ? "Noch " + tage + (tage === 1 ? " Tag" : " Tage") + " bis zum 1. Dezember" : "Bald geht's los";
+    st.textContent = tage > 0 ? "Noch " + tage + (tage === 1 ? " Tag" : " Tage") + " bis zum 1. Dezember" : "Gleich geht's los";
   } else if (heute < 24 || state.vorschau || (t.m === 12 && t.d === 24)) {
-    st.textContent = "Heute: Türchen " + heute;
+    st.textContent = "Heute ist Türchen " + heute + " dran";
   } else {
-    st.textContent = "Alle Türchen sind offen";
+    st.textContent = "Alle Türchen sind offen. Frohe Weihnachten!";
   }
 
   function seen(n) { return store.get("seen" + n) === "1"; }
@@ -189,7 +223,7 @@
         b.addEventListener("click", function () {
           if (locked) {
             b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
-            toast("Türchen " + n + " öffnet sich am " + n + ". Dezember.");
+            toast("Noch ein bisschen Geduld, Türchen " + n + " öffnet sich am " + n + ". Dezember.");
             return;
           }
           show(n);
@@ -205,6 +239,7 @@
   function inhalt(n, d, body) {
     if (d.tuete) body.appendChild(el("p", "tuete", d.tuete));
     if (d.text) body.appendChild(el("p", "text", d.text));
+    if (d.spruch) body.appendChild(el("blockquote", "spruch", d.spruch));
     if (d.links) {
       var ul = el("ul", "links");
       d.links.forEach(function (l) {
@@ -222,6 +257,7 @@
         w.appendChild(l); body.appendChild(w);
       });
     }
+    if (d.schluss) body.appendChild(el("p", "schluss", d.schluss));
     if (d.bild) { var i = el("img", "foto"); i.src = d.bild; i.alt = ""; body.appendChild(i); }
     if (d.gutschein) {
       var g = d.gutschein, tk = el("div", "ticket");
@@ -245,8 +281,8 @@
       var q = el("form", "quiz");
       var lab = el("label", "", r.frage); lab.setAttribute("for", "ans");
       var row = el("div", "row");
-      var inp = el("input"); inp.id = "ans"; inp.autocomplete = "off"; inp.placeholder = "Deine Antwort";
-      var go = el("button", "", "Prüfen"); go.type = "submit";
+      var inp = el("input"); inp.id = "ans"; inp.autocomplete = "off"; inp.placeholder = "Eure Antwort";
+      var go = el("button", "", "Los"); go.type = "submit";
       row.appendChild(inp); row.appendChild(go);
       var err = el("p", "err");
       q.appendChild(lab); q.appendChild(row); q.appendChild(err);
@@ -255,7 +291,7 @@
         e.preventDefault();
         var ok = r.antworten.some(function (a) { return norm(a) === norm(inp.value); });
         if (ok) { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; inhalt(n, d, body); draw(); }
-        else { err.textContent = "Leider nicht ganz. Versuch es nochmal!"; }
+        else { err.textContent = "Fast! Probier es gleich nochmal."; }
       });
       body.appendChild(q);
     } else {
