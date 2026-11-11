@@ -104,12 +104,12 @@ window.KALENDER = {
     },
 
     13: {
-      titel: "Schweiz-Quiz 🗳️",
+      titel: "Tier-Quiz 🐾",
       raetsel: {
-        frage: "Auf Bundesebene dürfen Schweizer Frauen seit 1971 abstimmen. In welchem Jahr mussten sie im Kanton Appenzell Innerrhoden per Gerichtsurteil zugelassen werden?",
-        antworten: ["1990"]
+        frage: "Welches Tier macht würfelförmigen Kot?",
+        antworten: ["wombat", "wombats", "das wombat", "ein wombat", "der wombat"]
       },
-      text: "1990! Am 29. April 1990 lehnte die Landsgemeinde das Frauenstimmrecht per Handzeichen noch ab. Am 27. November 1990 entschied das Bundesgericht einstimmig: Wer Frauen das Recht verweigert, verstößt gegen die Bundesverfassung."
+      text: "Das Wombat! Pro Nacht setzt es etwa 80 bis 100 kleine Würfel ab. Möglich macht das der Darm, dessen Wände sich unterschiedlich stark dehnen, sodass der Kot erst kurz vor dem Ende seine eckige Form bekommt. Die Würfel rollen nicht weg und helfen wohl dabei, anderen Wombats Nachrichten zu hinterlassen. 💩"
     },
 
     14: {
@@ -128,27 +128,26 @@ window.KALENDER = {
     },
 
     17: {
-      titel: "Das lieben wir an euch",
-      text: "3 Dinge, die wir an Euch lieben:",
+      titel: "3 Dinge, die wir an Euch lieben",
       abschnitte: [
         {
           titel: "Ante",
           punkte: [
-            "Du bist weltoffen. Du verurteilst niemanden für seine Schwächen, sondern gibst jedem das Gefühl, genauso dazuzugehören.",
-            "Bei dir fühlen sich Menschen gehört. Sie öffnen sich, weil du ihnen das Gefühl gibst, dass ihnen nichts unangenehm sein muss.",
-            "Du bist witzig. Deine trockenen Sprüche kommen immer aus dem Nichts, und kontern kannst du auch richtig gut."
+            "Du bist weltoffen und verurteilst niemanden für seine Schwächen, sondern gibst jedem das Gefühl, genauso dazuzugehören.",
+            "Bei dir fühlen sich Menschen gehört und öffnen sich, weil du ihnen das Gefühl gibst, dass ihnen nichts unangenehm sein muss.",
+            "Du bist lustig und hast immer wieder gute Kommentare oder Jokes auf Lager."
           ]
         },
         {
           titel: "Stef",
           punkte: [
-            "Du bist so gutmütig, dass man sich mit dir nicht mal streiten kann, selbst wenn man wollte. :-P",
+            "Du bist gutmütig, sodass man sich mit dir nicht mal streiten kann, selbst wenn man wollte. :-P",
             "Du packst immer mit an und willst nichts dafür zurück.",
             "Auf dein Wort ist Verlass. Du bist immer da, wenn man dich braucht."
           ]
         }
       ],
-      schluss: "Danke, dass es euch gibt 🫶"},
+      schluss: "Und lustig bist du natürlich auch, Stef ;)\nDanke, dass es euch gibt 🫶"},
 
     18: {
       titel: "Wusstet ihr schon? 🐔",
