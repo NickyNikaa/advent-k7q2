@@ -164,9 +164,13 @@ window.KALENDER = {
     },
 
     20: {
-      titel: "Wusstet ihr schon? 🍪",
+      titel: "Lebkuchen-Quiz 🍪",
       tuete: "Viel Glück heute! 🍀",
-      text: "Elisen-Lebkuchen müssen mindestens 25 Prozent Mandeln, Haselnüsse oder Walnüsse enthalten und dürfen höchstens 10 Prozent Mehl haben. Viele Bäcker verwenden sogar gar kein Mehl."
+      raetsel: {
+        frage: "Elisen-Lebkuchen sind die edelste Sorte. Wie viel Prozent Mandeln, Haselnüsse oder Walnüsse müssen sie mindestens enthalten?",
+        antworten: ["25", "25 prozent", "25 %", "25%", "25 pro", "25 prozent nüsse", "mindestens 25 prozent"]
+      },
+      text: "Mindestens 25 Prozent! Außerdem dürfen Elisen-Lebkuchen höchstens 10 Prozent Mehl enthalten. Viele Bäcker verwenden sogar gar kein Mehl. 🌰"
     },
 
     21: {
@@ -175,9 +179,13 @@ window.KALENDER = {
     },
 
     22: {
-      titel: "Wusstet ihr schon? 🎄",
+      titel: "Weihnachtsbaum-Quiz 🎄",
       tuete: "Viel Glück heute! 🍀",
-      text: "Rund 29,8 Millionen Weihnachtsbäume stehen jedes Jahr in deutschen Wohnzimmern, also etwa einer in jedem zweiten Haushalt. Acht von zehn Deutschen entscheiden sich für eine Nordmanntanne (Stand 2019)."
+      raetsel: {
+        frage: "Wie viele Weihnachtsbäume stehen jedes Jahr in deutschen Wohnzimmern? Tipp: Die Zahl ist zweistellig, in Millionen.",
+        antworten: ["298", "298 millionen", "298 mio", "30", "30 millionen", "ca 30 millionen", "rund 30 millionen", "ca 298 millionen", "rund 298 millionen", "29800000"]
+      },
+      text: "Rund 29,8 Millionen! Das ist etwa ein Baum in jedem zweiten Haushalt. Acht von zehn Deutschen entscheiden sich dabei für eine Nordmanntanne (Stand 2019). 🌲"
     },
 
     23: {
