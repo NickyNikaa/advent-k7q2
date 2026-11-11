@@ -113,6 +113,7 @@
            pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
   .toast.show { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+.quiz .skip{margin-top:.8rem;background:none !important;border:none !important;box-shadow:none !important;color:inherit !important;opacity:.7;text-decoration:underline;cursor:pointer;font-size:1.1rem;padding:.2rem 0}
 </style>
 </head>
 <body>
@@ -294,6 +295,9 @@
       var err = el("p", "err");
       q.appendChild(lab); q.appendChild(row); q.appendChild(err);
       if (r.hinweis) q.appendChild(el("p", "hint", r.hinweis));
+      var skip = el("button", "skip", "Auflösung zeigen"); skip.type = "button";
+      skip.addEventListener("click", function () { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; inhalt(n, d, body); draw(); });
+      q.appendChild(skip);
       q.addEventListener("submit", function (e) {
         e.preventDefault();
         var ok = r.antworten.some(function (a) { return norm(a) === norm(inp.value); });
