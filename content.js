@@ -26,7 +26,7 @@ window.KALENDER = {
   tage: {
     1: {
       titel: "Willkommen",
-      text: "Liebe Antonia, lieber Stef,\n\nWillkommen bei eurem Adventskalender. Wir hoffen, dass wir euch den Dezember und die Weihnachtszeit mit jedem Türchen ein Stück versüßen können und dass ihr Freude an dem Kalender habt.\n\n🫶",
+      text: "Liebe Ante, lieber Stef,\n\nWillkommen in eurem Adventskalender. 🎄♥️\n\nDie meisten Türchen habt ihr ohnehin physisch in euren Tüten. Die digitale Version dient nur der Unterstützung. Manchmal erwarten euch Tipps, manche kuriose Fakten und ganz am Schluss vielleicht auch ein kleines digitales Wertgeschenk. Wir hoffen, dass ihr Freude an dem Kalender habt. 🫶",
       bild: "assets/willkommen.svg"},
 
     2: {
