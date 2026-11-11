@@ -54,14 +54,18 @@ window.KALENDER = {
     },
 
     6: {
-      titel: "True Crime: Der Kunstraub von Zürich 🖼️",
+      titel: "Wusstet ihr schon? 🍌",
       tuete: "Viel Glück heute! 🍀",
-      text: "Zürich, 2008: Maskierte Männer überfallen an einem Sonntagnachmittag das Museum der Sammlung Bührle und stehlen vier Gemälde von van Gogh, Monet, Degas und Cézanne. Der Fall gilt als einer der größten Kunstdiebstähle Europas. Das wertvollste Bild, Cézannes „Der Knabe mit der roten Weste“, wurde auf rund 100 Millionen Franken geschätzt und blieb bis 2012 verschwunden.\n\nDann kam die Zürcher Polizei auf eine verrückte Idee: Beamte gaben sich jahrelang als Pornounternehmer aus, freundeten sich mit den mutmaßlichen Tätern in Belgrad an und kauften das Bild zum Schein für 2,8 Millionen Euro. Bei der Übergabe schnappte die Falle zu. 🕵️"
+      text: "Bananen sind botanisch gesehen Beeren. Erdbeeren dagegen nicht, sie gehören zu den Sammelnussfrüchten. Und Auberginen enthalten winzige Mengen Nikotin, so wie manch anderes Gemüse auch."
     },
 
     7: {
-      titel: "Wusstet ihr schon? 🏔️",
-      text: "In der Schweiz muss es für jeden Einwohner einen Schutzplatz im Bunker geben, das schreibt das Gesetz seit den 1960er Jahren vor. Eine Auswertung von 2006 zählte rund 300.000 Schutzräume mit Platz für etwa 8,6 Millionen Menschen, also 114 Prozent der Bevölkerung. Zum Vergleich: In Deutschland sind es nur etwa 3 Prozent.\n\nTheoretisch passt die ganze Schweiz also in ihre eigenen Keller. 😄"
+      titel: "Reise-Quiz 🌍",
+      raetsel: {
+        frage: "Welches Land ist aktuell das meistbesuchte der Welt?",
+        antworten: ["frankreich", "france"]
+      },
+      text: "Frankreich! 2024 kamen rund 100 Millionen Besucher, knapp vor Spanien mit 94 Millionen. 🥐"
     },
 
     8: {
@@ -74,13 +78,13 @@ window.KALENDER = {
       schluss: "Lasst es euch schmecken 😋"},
 
     9: {
-      titel: "Krimi-Quiz 🕵️",
+      titel: "Wasser-Quiz ⛵",
       tuete: "Viel Glück heute! 🍀",
       raetsel: {
-        frage: "Die Krimi-Autorin Agatha Christie verschwand 1926 spurlos und ganz England suchte nach ihr. Wie viele Tage blieb sie verschwunden?",
-        antworten: ["11", "elf", "11 tage", "elf tage"]
+        frage: "Wie viele Menschen in Deutschland haben einen Sportbootführerschein? Tipp: Es geht um Millionen.",
+        antworten: ["19", "19 millionen", "ca 19 millionen", "rund 19 millionen", "19 mio", "1900000", "1900000 menschen", "1 9 millionen"]
       },
-      text: "Elf Tage! Am 3. Dezember 1926 verließ sie ihr Zuhause, 15.000 Freiwillige halfen der Polizei bei der Suche. Gefunden wurde sie am 15. Dezember in einem Hotel in Harrogate, wo sie sich als „Mrs. Teresa Neele“ eingetragen hatte, mit dem Nachnamen der Geliebten ihres Mannes. Warum sie verschwand, gilt bis heute als Rätsel."
+      text: "Rund 1,9 Millionen Menschen! So viele besitzen laut einer ADAC-Studie von 2026 in Deutschland einen amtlichen Sportbootführerschein (ohne reine Jetskifahrer). ⚓"
     },
 
     10: {
@@ -174,8 +178,12 @@ window.KALENDER = {
     },
 
     23: {
-      titel: "True Crime: D. B. Cooper ✈️",
-      text: "24. November 1971: Ein Mann, der sich Dan Cooper nennt, kapert Flug 305 von Portland nach Seattle. Er verlangt 200.000 Dollar und vier Fallschirme. Nach der Landung bekommt er beides, und irgendwo in der Nacht springt er mit dem Fallschirm ab.\n\nGefunden wurde er nie. Erst 1980 entdeckte ein achtjähriger Junge am Columbia River verrottete 20-Dollar-Scheine im Wert von 5.800 Dollar, Teile des Lösegelds. Wer der Mann war, ist bis heute ungeklärt. 🪂"
+      titel: "Quiz: Wo isst man am wenigsten heimisch? 🍽️",
+      raetsel: {
+        frage: "Einer Studie von 2019 zufolge servieren in einem Land im Vergleich die wenigsten Restaurants die heimische Küche. Zur Wahl stehen: Deutschland, Russland, Frankreich, Griechenland, Italien, Japan. Welches Land ist es?",
+        antworten: ["deutschland", "in deutschland", "germany"]
+      },
+      text: "Deutschland! Nur 35,5 Prozent der Restaurants bieten deutsche Küche an, der niedrigste Wert im Ländervergleich. In Russland sind es 42 Prozent, in Frankreich 44,5 und in Italien 77,3 Prozent. 🍝"
     },
 
     24: {
