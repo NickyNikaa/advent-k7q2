@@ -93,8 +93,12 @@ window.KALENDER = {
     },
 
     11: {
-      titel: "Wusstet ihr schon? 🪐",
-      text: "Auf der Venus dauert ein Tag länger als ein Jahr. Sie braucht etwa 243 Erdtage für eine Drehung um sich selbst, aber nur etwa 225 Erdtage für eine Runde um die Sonne. Und weil sie sich andersherum dreht als die Erde, geht die Sonne dort im Westen auf."
+      titel: "Luxus-Quiz 🏨",
+      raetsel: {
+        frage: "Guinness-Weltrekord: Das teuerste Hotelzimmer der Welt ist das Mark Penthouse in New York. Was kostet eine Nacht? Tipp: Die Zahl ist sechsstellig.",
+        antworten: ["114767", "114767 dollar", "114767 us dollar", "114767 usd", "114767 $", "100000", "100000 euro", "ca 100000 euro", "ca 100000", "rund 100000 euro", "100000 dollar", "100000 €"]
+      },
+      text: "114.767 US-Dollar pro Nacht, das sind rund 100.000 Euro! Dafür gibt es ein Penthouse mit rund 930 m², 5 Schlafzimmern, 6 Badezimmern, eigenem Fitnessraum und einer Dachterrasse mit Blick auf den Central Park. Guinness World Records hat den Preis am 22. April 2025 bestätigt. 🗽"
     },
 
     12: {
