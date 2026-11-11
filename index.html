@@ -82,6 +82,7 @@
             background-position: 0 8px; }
   .tuete { display: inline-block; font-size: 21px; color: var(--ink); margin: 6px 0 14px; padding: 2px 14px 4px 18px;
            background: var(--bg2); border-radius: 4px 14px 14px 4px; border-left: 4px solid var(--gold); }
+  .physisch { margin: 6px 0 12px; padding: 4px 14px; font-size: 21px; color: #fff; background: #7a5aa8; border-radius: 8px; }
   .text { white-space: pre-line; margin: 0 0 14px; font-size: 25px; line-height: 31px; }
   .spruch { margin: 18px 4px 16px; padding: 0; text-align: center; font-size: 30px; line-height: 1.12; color: var(--red); }
   .spruch::before { content: "\201E"; } .spruch::after { content: "\201C"; }
@@ -142,6 +143,7 @@
 <div class="toast" id="toast" role="status"></div>
 
 <script src="content.js"></script>
+<script>if (new URLSearchParams(location.search).get("vorschau") !== null) { document.write('<script src="vorschau-tueten.js"><\/script>'); }</script>
 <script>
 (function () {
   var K = window.KALENDER;
@@ -276,13 +278,17 @@
     }
   }
 
+  function banner(n, body) {
+    if (state.vorschau && window.TUETEN && window.TUETEN[n]) body.appendChild(el("p", "physisch", "🎁 In der Tüte: " + window.TUETEN[n]));
+  }
+
   function show(n) {
     var d = K.tage[n] || {};
     var titel = d.titel || K.standard.titel.replace("{n}", n);
     if (!K.tage[n]) d = { text: K.standard.text };
     $("d-num").textContent = n;
     $("d-title").textContent = titel;
-    var body = $("d-body"); body.innerHTML = "";
+    var body = $("d-body"); body.innerHTML = ""; banner(n, body);
 
     var r = d.raetsel;
     if (r && store.get("solved" + n) !== "1") {
@@ -296,12 +302,12 @@
       q.appendChild(lab); q.appendChild(row); q.appendChild(err);
       if (r.hinweis) q.appendChild(el("p", "hint", r.hinweis));
       var skip = el("button", "skip", "Auflösung zeigen"); skip.type = "button";
-      skip.addEventListener("click", function () { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; inhalt(n, d, body); draw(); });
+      skip.addEventListener("click", function () { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; banner(n, body); inhalt(n, d, body); draw(); });
       q.appendChild(skip);
       q.addEventListener("submit", function (e) {
         e.preventDefault();
         var ok = r.antworten.some(function (a) { return norm(a) === norm(inp.value); });
-        if (ok) { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; inhalt(n, d, body); draw(); }
+        if (ok) { store.set("solved" + n, "1"); store.set("seen" + n, "1"); body.innerHTML = ""; banner(n, body); inhalt(n, d, body); draw(); }
         else { err.textContent = "Fast! Probier es gleich nochmal."; }
       });
       body.appendChild(q);

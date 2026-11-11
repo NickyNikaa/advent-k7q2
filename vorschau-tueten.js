@@ -1,0 +1,27 @@
+/* Nur für die Vorschau (?vorschau=...): was physisch in der Tüte steckt. Wird für die normale Ansicht nicht geladen. */
+window.TUETEN = {
+  1: "Brezeln (Sour Cream & Onion)",
+  2: "Dein Fützl",
+  3: "Haribo Almdudler + Los",
+  4: "Avocado-Gewürz",
+  5: "Glühwein",
+  6: "Nussmischung + Weihnachtsbaum-Anhänger von euch beiden + Los",
+  7: "ahead Gummies (Green Apples)",
+  8: "Haarklammer",
+  9: "Honig + Los",
+  10: "Mini-Leo-Tasche",
+  11: "Pringles (Santa's Secret)",
+  12: "Sticker mit euren Köpfen + Los",
+  13: "Fini Jelly Cola + Baba Ganoush",
+  14: "Tasche",
+  15: "Oreo Wafer + Anhänger",
+  16: "Jean&Lean Duschschaum",
+  17: "Freezes",
+  18: "Bootsanhänger",
+  19: "Ingwer-Schoki",
+  20: "Pinienkerne + Los",
+  21: "Kerzen",
+  22: "ahead Soft Hearts + Los",
+  23: "Block",
+  24: "Gutschein + Spiel „Mehr oder weniger“"
+};
