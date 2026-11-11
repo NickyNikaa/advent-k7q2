@@ -88,8 +88,8 @@ window.KALENDER = {
     },
 
     10: {
-      titel: "Wusstet ihr schon? 🤗",
-      text: "In einer Studie der Carnegie Mellon University mit 404 Erwachsenen wurden 14 Abende lang Umarmungen und Streit festgehalten. Wer öfter umarmt wurde, hatte bei einer Erkältung mildere Symptome."
+      titel: "Wusstet ihr schon? 🖋️",
+      text: "In Deutschland haben ungefähr 21 bis 26 Prozent der Menschen mindestens ein Tattoo. 🇩🇪 Das sind grob hochgerechnet etwa 18 bis 22 Millionen Menschen.\n\nBesonders interessant: Bei den jungen Erwachsenen (20 bis 29 Jahre) ist fast jeder Zweite tätowiert. Bei den Millennials (Jahrgang 1981 bis 1996) sind es etwa 36 Prozent, bei den Babyboomern nur etwa 15 Prozent.\n\nEine YouGov-Umfrage aus 2026 kam auf 26 Prozent tätowierte Menschen."
     },
 
     11: {
